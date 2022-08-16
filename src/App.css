@@ -1,10 +1,52 @@
-.App {
-  text-align: center;
+:root {
+  --borderColor: #d0d7de;
+  --borderRadius: 6px;
+  --accentColor: #0969da;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#root {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#root .container {
+  display: grid;
+  grid-template-rows: 142px auto 115px;
+  height: 100vh;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.card {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--borderColor);
+  border-radius: var(--borderRadius);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,4 +77,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+a {
+  color: #24292f;
+}
+a:hover {
+  color: var(--accentColor);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+select {
+  width: 100%;
+  padding: 5px 16px;
+  display: inline-block;
+  border: 1px solid var(--borderColor);
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+}
+
+button {
+  all: unset;
+  border: 1px solid rgba(23, 56, 13, 0.2);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(23, 56, 13, 0.1);
+  border-radius: 6px;
+  padding: 5px 16px;
+  font-size: 0.875rem;
+  background: #f6f8fa;
+  font-weight: bold;
+  color: #444;
+}
+
+button:focus-visible {
+  outline: 2px solid black;
+}
+
+button:hover {
+  background: #f5f5f5;
+}
+
+button:active {
+  box-shadow: inset 0px 0px 5px rgba(23, 56, 13, 0.1);
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1rem;
 }
