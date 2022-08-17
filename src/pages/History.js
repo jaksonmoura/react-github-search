@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Navigate, NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const HistoryWrapper = styled.section`
@@ -43,7 +44,8 @@ const History = () => {
 				{history?.length > 0 ? (
 					history.map((h, i) => (
 						<li className="card" key={i}>
-							<a href={`/?username=${h.name}`}>{h.name}</a> <span>{h.date.toString("d")}</span>
+							<NavLink to={`/search?username=${h.name}`}>{h.name}</NavLink>{" "}
+							<span>{h.date.toString("d")}</span>
 						</li>
 					))
 				) : (

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Api from "../Api";
 import { setCurrentUser } from "./userSlice";
 import { createEntry } from "./historySlice";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import * as S from "./Form.styles";
 
 const Form = () => {
@@ -11,6 +11,7 @@ const Form = () => {
 	const [inputError, setInputError] = useState("");
 	let [username, setUsername] = useSearchParams();
 	const dispatch = useDispatch();
+	let navigate = useNavigate();
 
 	useEffect(() => {
 		let urlParams = username.get("username");
@@ -33,7 +34,7 @@ const Form = () => {
 		dispatch(setCurrentUser(user));
 		dispatch(createEntry(user.login));
 		// change url
-		setUsername({ username: userField });
+		navigate(`/search?username=${user.login}`);
 	};
 
 	return (
