@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Navigate, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const HistoryWrapper = styled.section`
