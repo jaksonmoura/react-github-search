@@ -13,7 +13,7 @@ const Api = {
 		return response;
 	},
 	fetchUserRepos: async (username) => {
-		const response = fetch(`${API_URL}/users/${username}/repos`, {
+		const response = fetch(`${API_URL}/users/${username}/repos?sort=updated`, {
 			method: "GET",
 			headers: new Headers({
 				"Authorization": `token ${API_TOKEN}`,
@@ -31,7 +31,7 @@ const Api = {
 			}),
 		}).then((data) => data.json());
 
-		const repos = await fetch(`${API_URL}/users/${username}/repos`, {
+		const repos = await fetch(`${API_URL}/users/${username}/repos?sort=updated`, {
 			method: "GET",
 			headers: new Headers({
 				"Authorization": `token ${API_TOKEN}`,
