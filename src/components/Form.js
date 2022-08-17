@@ -3,20 +3,19 @@ import { useDispatch } from "react-redux";
 import Api from "../Api";
 import { setCurrentUser } from "./userSlice";
 import { createEntry } from "./historySlice";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as S from "./Form.styles";
 
 const Form = () => {
 	const [userField, setUserField] = useState("");
 	const [inputError, setInputError] = useState("");
-	let [username, setUsername] = useSearchParams();
+	let username = new URLSearchParams(document.location.search).get("username");
 	const dispatch = useDispatch();
 	let navigate = useNavigate();
 
 	useEffect(() => {
-		let urlParams = username.get("username");
-		if (!urlParams) return;
-		setUserField(urlParams);
+		if (!username) return;
+		setUserField(username);
 	}, [username]);
 
 	const handleSubmit = async (e) => {
