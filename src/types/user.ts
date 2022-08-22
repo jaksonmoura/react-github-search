@@ -109,7 +109,7 @@ export interface Repos {
 	permissions: Permissions;
 }
 
-export interface UserInterface {
+export interface User {
 	login: string;
 	avatar_url: string;
 	html_url: string;

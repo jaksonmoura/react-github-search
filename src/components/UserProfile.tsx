@@ -1,10 +1,10 @@
 import React from "react";
 import { useAppSelector } from "../hooks";
-import { UserInterface } from "../types/user";
+import { User } from "../types/user";
 import * as S from "./User.styles";
 
 const UserProfile = () => {
-	const user: UserInterface = useAppSelector((state) => state.user);
+	const user: User = useAppSelector((state) => state.user);
 
 	const UserBio = () => {
 		return (
