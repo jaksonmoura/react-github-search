@@ -1,9 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
+import { UserInterface } from "../types/user";
 import * as S from "./User.styles";
 
 const UserRepositories = () => {
-	const user = useSelector((state) => state.user);
+	const user: UserInterface = useAppSelector((state) => state.user);
 
 	if (user.message !== "Not Found") {
 		return (
@@ -26,7 +27,7 @@ const UserRepositories = () => {
 			</section>
 		);
 	} else {
-		return;
+		return null;
 	}
 };
 

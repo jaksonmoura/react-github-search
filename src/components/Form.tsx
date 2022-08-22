@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Api from "../Api";
 import { setCurrentUser } from "./userSlice";
@@ -18,11 +18,11 @@ const Form = () => {
 		setUserField(username);
 	}, [username]);
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault();
 		if (userField === "") {
 			setInputError("Please enter a username");
-			document.querySelector("input#username").focus();
+			(document.querySelector("input#username") as HTMLElement)?.focus();
 			return;
 		} else {
 			setInputError("");

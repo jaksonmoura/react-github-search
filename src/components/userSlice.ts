@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UserInterface } from "../types/user";
 
-const initialState = {
+const initialState: UserInterface = {
 	login: "jaksonmoura",
 	avatar_url: "https://avatars.githubusercontent.com/u/612879?v=4",
 	html_url: "https://github.com/jaksonmoura",
