@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { UserInterface } from "../types/user";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Repos, User } from "../types/user";
 
-const initialState: UserInterface = {
+const initialState: User = {
 	login: "jaksonmoura",
 	avatar_url: "https://avatars.githubusercontent.com/u/612879?v=4",
 	html_url: "https://github.com/jaksonmoura",
@@ -453,10 +453,10 @@ export const userSlice = createSlice({
 	name: "user",
 	initialState: initialState,
 	reducers: {
-		setCurrentUser: (state, action) => {
+		setCurrentUser: (state, action: PayloadAction<User>) => {
 			return { ...action.payload };
 		},
-		setUserRepos: (state, action) => {
+		setUserRepos: (state, action: PayloadAction<Repos[]>) => {
 			return { ...state, repos: action.payload };
 		},
 	},
