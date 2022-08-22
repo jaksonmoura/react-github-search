@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import Form from "../components/Form";
 import UserProfile from "../components/UserProfile";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { setCurrentUser } from "../components/userSlice";
 import Api from "../Api";
 import UserRepositories from "../components/UserRepositories";
+import { User } from "../types/user";
 
 const Home = () => {
 	const defaultUsername = "jaksonmoura";
-	const dispatch = useDispatch();
-	const user = useSelector((state) => state.user);
+	const dispatch = useAppDispatch();
+	const user: User = useAppSelector((state) => state.user);
 	let username = new URLSearchParams(document.location.search).get("username") || "";
 
 	useEffect(() => {
@@ -18,7 +19,6 @@ const Home = () => {
 		const handlePageLoad = async () => {
 			// if so, fetch and set it to the store
 			const newUser = await Api.fetchUserWithRepos(username || defaultUsername);
-			console.log(newUser.login);
 			dispatch(setCurrentUser(newUser));
 		};
 		handlePageLoad();

@@ -26,7 +26,7 @@ if (items) {
 	store.dispatch(hydrate(items));
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
 	<Provider store={store}>
 		<React.StrictMode>

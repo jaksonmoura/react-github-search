@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -35,7 +35,7 @@ export const HistoryWrapper = styled.section`
 `;
 
 const History = () => {
-	let history = useSelector((state) => state.history);
+	let history = useAppSelector((state) => state.history);
 
 	return (
 		<HistoryWrapper aria-labelledby="history-title">
@@ -45,7 +45,7 @@ const History = () => {
 					history.map((h, i) => (
 						<li className="card" key={i}>
 							<NavLink to={`/search?username=${h.name}`}>{h.name}</NavLink>{" "}
-							<span>{h.date.toString("d")}</span>
+							<span>{h.date.toString()}</span>
 						</li>
 					))
 				) : (

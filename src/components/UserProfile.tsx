@@ -1,9 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks";
+import { User } from "../types/user";
 import * as S from "./User.styles";
 
 const UserProfile = () => {
-	const user = useSelector((state) => state.user);
+	const user: User = useAppSelector((state) => state.user);
 
 	const UserBio = () => {
 		return (

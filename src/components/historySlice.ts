@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { History } from "../types/history";
 
-let initialState = [
+let initialState: History[] = [
 	{
 		name: "zencarot",
 		date: new Date().toLocaleString(),
@@ -11,10 +12,10 @@ const historySlice = createSlice({
 	name: "history",
 	initialState: initialState,
 	reducers: {
-		createEntry: (state, action) => {
+		createEntry: (state, action: PayloadAction<string>) => {
 			return [{ name: action.payload, date: new Date().toLocaleString() }, ...state];
 		},
-		hydrate: (state, action) => {
+		hydrate: (state, action: PayloadAction<History[]>) => {
 			return action.payload;
 		},
 	},
