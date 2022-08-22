@@ -5,12 +5,12 @@ import { useAppDispatch, useAppSelector } from "../hooks";
 import { setCurrentUser } from "../components/userSlice";
 import Api from "../Api";
 import UserRepositories from "../components/UserRepositories";
-import { UserInterface } from "../types/user";
+import { User } from "../types/user";
 
 const Home = () => {
 	const defaultUsername = "jaksonmoura";
 	const dispatch = useAppDispatch();
-	const user: UserInterface = useAppSelector((state) => state.user);
+	const user: User = useAppSelector((state) => state.user);
 	let username = new URLSearchParams(document.location.search).get("username") || "";
 
 	useEffect(() => {
